@@ -1,0 +1,38 @@
+select {
+    padding: 6px 45px 6px 0;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.modal {
+    h4 {
+        color: #522ba1;
+    }
+
+    .modal-content {
+        background-color: #eeebf4;
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        font-size: 17px;
+        color: #442c73;
+        i {
+            margin-right: 5px;
+        }
+    }
+
+    #addPerson {
+        display: block;
+        padding: 8px 35px;
+        background-color: #8862d5;
+        border-color: #8862d5;
+    }
+}
+.navbar {
+    background-color: #8862d5 !important;
+}
+span {
+    color: red;
+}

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Style CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Cyber Education</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Class</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="#">FrontEnd</a>
+              <a class="dropdown-item" href="#">BackEnd</a>
+              <a class="dropdown-item" href="#">FullStack</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="display-4 my-4">Cyber Education</header>
+    <!-- Phan tab menu -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#DanhSachSP" role="tab" data-toggle="tab">List Person Control</a>
+      </li>
+    </ul>
+    <br />
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!--Danh sách sản phẩm -->
+      <div role="tabpanel" class="tab-pane in active" id="DanhSachSP">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- BEGIN BUTTOM THÊM MỚI -->
+            <button id="btnThemSP" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+              <i class="fa fa-plus mr-1"></i>
+              Add Person
+            </button>
+            <!-- END BUTTON THÊM MỚI -->
+          </div>
+          <div class="col-md-2">
+            <select name="" id="selc">
+              <option value="all">All</option>
+              <option value="student">students</option>
+              <option value="employee">employee</option>
+              <option value="customer">customers</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <!-- BEGIN TÌM KIẾM -->
+            <div class="input-group mb-3">
+              <input id="searchName" type="text" class="form-control" placeholder="enter name for search..."
+                aria-label="Recipient's username" aria-describedby="basic-addon2" />
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+            <!-- END TÌM KIẾM -->
+          </div>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="tblSanPham" id="tblSanPham">
+          <!-- BEGIN TABLE SẢN PHẨM -->
+          <table class="table table-bordered">
+            <thead>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Email</th>
+              <th>Position</th>
+              <th>Action</th>
+            </thead>
+            <tbody id="tblDanhSachSP"></tbody>
+          </table>
+          <!-- END TABLE SẢN PHẨM -->
+        </div>
+        <br />
+      </div>
+      <!-- Kết thúc danh sách sản phẩm -->
+    </div>
+
+    <!--KetThuc Tabmenu-->
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Form Infomation</h4>
+            <button type="button" id="close" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label><i class="fa fa-address-book"></i> ID</label>
+              <input id="idCard" class="form-control" type="number" placeholder="Pls input ID here" />
+              <span id="errorID"></span>
+            </div>
+            <div class="form-group">
+              <label><i class="fa fa-user"></i> Name</label>
+              <input id="name" class="form-control" placeholder="Pls input Name here" />
+              <span id="errorName"></span>
+            </div>
+            <div class="form-group">
+              <label> <i class="fa fa-address-card"></i> Address (Dictrict)</label>
+              <input id="address" class="form-control" placeholder="pls input Address here" />
+              <span id="errorAddress"></span>
+            </div>
+            <div class="form-group">
+              <label> <i class="fa fa-envelope"></i> Email</label>
+              <input id="email" class="form-control" placeholder="pls input Email here" />
+              <span id="errorEmail"></span>
+            </div>
+            <div class="form-group">
+              <label>Position</label>
+              <select name="" id="inputSelc">
+                <option value="none">none</option>
+                <option value="student">Student</option>
+                <option value="employee">Employee</option>
+                <option value="customer">Customer</option>
+              </select>
+              <span id="errorSelc"></span>
+            </div>
+            <div id="inputMaths" class="form-group" style="display: none;">
+              <label><i class="fa fa-calculator"></i> Maths</label>
+              <input id="maths" class="form-control" type="number" placeholder="pls input Maths here" />
+              <span id="errorMaths"></span>
+            </div>
+            <div id="inputPhysical" class="form-group" style="display: none;">
+              <label> <i class="fa fa-fill-drip"></i> Physical</label>
+              <input id="physical" class="form-control" type="number" placeholder="pls input Physical here" />
+              <span id="errorPhysical"></span>
+            </div>
+            <div id="inputChemistry" class="form-group" style="display: none;">
+              <label> <i class="fa fa-bong"></i> Chemistry</label>
+              <input id="chemistry" class="form-control" type="number" placeholder="pls input Chemistry here" />
+              <span id="errorChemistry"></span>
+            </div>
+            <div id="inputDateW" class="form-group" style="display: none;">
+              <label> <i class="fa fa-calendar-check"></i> Date Working </label>
+              <input id="dateWork" class="form-control" type="number" placeholder="pls input Date Working here" />
+              <span id="errorDateWork"></span>
+            </div>
+            <div id="inputSalary" class="form-group" style="display: none;">
+              <label> <i class="fa fa-dollar-sign"></i> Salary (USD) </label>
+              <input id="salary" class="form-control" type="number" placeholder="pls input Salary here" />
+              <span id="errorSalary"></span>
+            </div>
+            <div id="inputCompany" class="form-group" style="display: none;">
+              <label> <i class="fa fa-hotel"></i> Company</label>
+              <input id="company" class="form-control" placeholder="pls input Company here" />
+              <span id="errorCompany"></span>
+            </div>
+            <div id="inputBill" class="form-group" style="display: none;">
+              <label> <i class="fa fa-money-bill"></i> Bill (USD)</label>
+              <input id="bill" class="form-control" type="number" placeholder="pls input Bill here" />
+              <span id="errorBill"></span>
+            </div>
+            <div id="inputComment" class="form-group" style="display: none;">
+              <label> <i class="fa fa-comment"></i> Comment </label>
+              <input id="comment" class="form-control" placeholder="pls input Comment here" />
+              <span id="errorComment"></span>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">More Detail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="moreInfor">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">OKAY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div id="container"></div> -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Style JS -->
+  <script src="./service/method.js"></script>
+  <script type="module" src="./controller/index.js"></script>
+</body>
+
+</html>
