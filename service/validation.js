@@ -66,6 +66,16 @@ export class Validation {
             hideError(errorID)
             return true;
         }
-        showError(errorID,mess)
+        showError(errorID,mess);
+        return false;
+    }
+    checkID (person,errorID,mess) {
+        if (person) {
+            showError(errorID,mess);
+            return false;
+        } else {
+            hideError(errorID);
+            return true;
+        }
     }
 }

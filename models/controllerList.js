@@ -26,7 +26,7 @@ export class ListPerson extends Person {
     }
 
     editPerson = (id) => {
-        return this.personList.find((element) => Number(element.id) === id)
+        return this.personList.find((element) => Number(element.id) == Number.parseFloat(id))
     }
 
     updatePerson(person) {

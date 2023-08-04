@@ -115,11 +115,13 @@ const checkValid = () => {
     const email = domEle("email").value;
     const position = domEle("inputSelc").value;
 
-    valid &= validation.checkempty(id, "errorID", "(*) Please do not leave it blank") && validation.checkNumber(id,"errorID","(*) ID min 1 max 1000", 1,1000 ) ;
+    const person = listPerson.editPerson(id);
+    
+    valid &= validation.checkempty(id, "errorID", "(*) Please do not leave it blank") && validation.checkNumber(id,"errorID","(*) ID min 1 max 1000", 1,1000 ) && validation.checkID(person,"errorID", "(*) ID already available") ;
 
     valid &= validation.checkempty(name, "errorName", "(*) Please do not leave it blank") && validation.checkLength(name,"errorName","(*) Name from 4 - 25", 4,25 ) && validation.checkPattern(name, "errorName", "(*)Please enter correct","^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$");
 
-    valid &= validation.checkempty(address, "errorAddress", "(*) Please do not leave it blank");
+    valid &= validation.checkempty(address, "errorAddress", "(*) Please do not leave it blank") && validation.checkLength(address, "errorAddress", "(*) Address form 4 keyword",4,100);
     valid &= validation.checkempty(email, "errorEmail", "(*) Please do not leave it blank") && validation.checkPattern(email, "errorEmail", "(*) Please enter correct",/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     valid &= validation.checkSelc("inputSelc", "errorSelc", "(*) Please choose position");
 
